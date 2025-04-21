@@ -20,8 +20,8 @@ public class DemoXPathAbsolute {
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/form/div[4]/button")).click();
 
 //        driver.findElement(By.xpath("/html/body/aside/ul/li[3]/a/span")).click();
-//        driver.findElement(By.xpath("/html/body/div[3]/div/div/div/div[1]/a[1]")).click();
-        driver.findElement(By.xpath("//ul[@id='side-menu']/li"));
+        driver.findElement(By.xpath("/html[1]/body[1]/aside[1]/ul[1]/li[3]/a[1]")).click();
+//        driver.findElement(By.xpath("//ul[@id='side-menu']/li"));
 
         Thread.sleep(3000);
         driver.quit();
