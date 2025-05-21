@@ -1,6 +1,6 @@
 package com.anhtester.Bai6_WebElement;
 
-import com.anhtester.Bai5_Locators.LocatorsCRM;
+import com.anhtester.LocatorsCRM;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -31,7 +31,7 @@ public class Demo_GetText {
         driver.findElement(By.xpath(LocatorsCRM.linkMenuCustomer)).click();
 
         Thread.sleep(2000);
-        String headerCustomersText = driver.findElement(By.xpath(LocatorsCRM.labelCustomersSummary)).getText();
+        String headerCustomersText = driver.findElement(By.xpath(LocatorsCRM.headerCustomerPage)).getText();
 
         System.out.println("Header Customers: " + headerCustomersText);
 

@@ -1,4 +1,4 @@
-package com.anhtester.Bai5_Locators;
+package com.anhtester;
 
 public class LocatorsCRM {
     public static String url = "https://crm.anhtester.com/admin/authentication";
@@ -19,8 +19,8 @@ public class LocatorsCRM {
     public static String linkMenuCustomer = "//ul[@id='side-menu']//a[@href='https://crm.anhtester.com/admin/clients']";
 
     public static String buttonNewCustomer = "//a[normalize-space()='New Customer']";
-    public static String buttonImportCustomer = "//a[normalize-space()='Import Customers' and contains(@href,'import')]";
-    public static String buttonContacts = "//a[normalize-space()='Contacts' and contains(@href,'all_contacts')]";
+    public static String buttonImportCustomer = "//a[normalize-space()='Import Customers']";
+    public static String buttonContacts = "//a[normalize-space()='Contacts']";
 
     public static String buttonFilter = "//div[@id='vueApp']/descendant::button[contains(@class,'dropdown-toggle')]";
 
@@ -38,7 +38,7 @@ public class LocatorsCRM {
     public static String labelDefaultFilter = "//label[normalize-space()='Mark as default']";
     public static String buttonApplyAndSave = "//button[text()='Apply and Save']";
 
-    public static String labelCustomersSummary = "//span[normalize-space()='Customers Summary']";
+    public static String headerCustomerPage = "//span[normalize-space()='Customers Summary']";
     public static String numberTotalCustomers = "//span[normalize-space()='Total Customers']/preceding-sibling::span";
     public static String labelTotalCustomers = "//span[normalize-space()='Total Customers']";
     public static String numberActiveCustomers = "//span[normalize-space()='Active Customers']/preceding-sibling::span";

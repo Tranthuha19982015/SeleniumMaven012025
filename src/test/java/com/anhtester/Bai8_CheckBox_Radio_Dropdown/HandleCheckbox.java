@@ -1,13 +1,12 @@
 package com.anhtester.Bai8_CheckBox_Radio_Dropdown;
 
-import com.anhtester.Bai5_Locators.LocatorsCRM;
+import com.anhtester.LocatorsCRM;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 
 public class HandleCheckbox {

@@ -1,7 +1,8 @@
 package com.anhtester.Bai8_CheckBox_Radio_Dropdown;
 
-import com.anhtester.Bai5_Locators.LocatorsCRM;
+import com.anhtester.common.BaseTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 import java.util.List;
 
-public class HandleRadioButton {
+public class HandleRadioButton extends BaseTest {
 
     public static void HandleRadioButton1() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
@@ -41,11 +42,7 @@ public class HandleRadioButton {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        driver.get(LocatorsCRM.url);
-
-        driver.findElement(By.xpath(LocatorsCRM.inputEmail)).sendKeys("admin@example.com");
-        driver.findElement(By.xpath(LocatorsCRM.inputPassword)).sendKeys("123456");
-        driver.findElement(By.xpath(LocatorsCRM.buttonLogin)).click();
+        loginCRM();
 
         driver.findElement(By.xpath("//span[@class='menu-text'][normalize-space()='Sales']")).click();
         driver.findElement(By.xpath("//span[normalize-space()='Proposals']")).click();
@@ -70,6 +67,14 @@ public class HandleRadioButton {
 
         System.out.println("Total radio buttons selected = " + check1);
         System.out.println("Total radio buttons unselected = " + check2);
+
+
+        WebElement element = driver.findElement(By.xpath("//label[normalize-space()='Hours']/preceding-sibling::input"));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+        Thread.sleep(1000);
+
+        driver.findElement(By.xpath("//label[normalize-space()='Hours']")).click();
 
         Thread.sleep(2000);
         driver.quit();
