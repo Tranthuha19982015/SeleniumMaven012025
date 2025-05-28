@@ -58,7 +58,8 @@ public class LocatorsCRM {
     public static String iconReload = "//div[@id='clients_length']/following-sibling::div//button[contains(@class,'btn-dt-reload')]";
 
     public static String iconSearch = "//div[@id='clients_filter']/descendant::span[@class='input-group-addon']";
-    public static String inputSearch = "//div[@id='clients_filter']/descendant::input[@type='search']";
+    public static String inputSearch = "//div[@id='clients_filter']//input[@type='search']";
+    public static String firstRowItemCustomer="//table[@id='clients']//tbody/tr[1]/td[3]/a";
 
     public static String checkboxAll = "//input[@id='mass_select_all' and @type='checkbox]";
     public static String columnNumberOfCompany = "//th[@id='th-number' and normalize-space()='#']";
@@ -80,12 +81,24 @@ public class LocatorsCRM {
     public static String inputVatNumber = "//input[@id='vat']";
     public static String inputPhone = "//input[@id='phonenumber']";
     public static String inputWebsite = "//input[@id='website']";
+
     public static String dropdownGroups = "//button[contains(@data-id,'groups_in')]";
     public static String inputSearchGroups = "//button[contains(@data-id,'groups_in')]/following-sibling::div//input[@type='search']";
-    public static String dropdownCurrency = "button[@data-id='default_currency']";
+
+    public static String dropdownCurrency = "//button[@data-id='default_currency']";
     public static String inputSearchCurrency = "//button[@data-id='default_currency']/following-sibling::div//input[@type='search']";
+
     public static String dropdownDefaultLanguage = "//button[@data-id='default_language']";
-    public static String inputAdress = "//textarea[@id='address']";
+//    C1:
+    public static String optionDefaultLanguage = "//span[normalize-space()='%s']";
+
+//    C2:
+    public static String selectXPathLanguage(String language) {
+        String xpathDefaultLanguage = "//span[normalize-space()='" + language + "']";
+        return xpathDefaultLanguage;
+    }
+
+    public static String inputAddress = "//textarea[@id='address']";
     public static String inputCity = "//input[@id='city']";
     public static String inputState = "//input[@id='state']";
     public static String inputZipCode = "//input[@id='zip']";

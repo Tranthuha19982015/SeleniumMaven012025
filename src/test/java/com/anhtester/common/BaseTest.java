@@ -14,10 +14,14 @@ public class BaseTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        System.out.println("Driver created successfully.");
     }
 
     public static void closeDriver() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
+        System.out.println("Driver closed successfully.");
     }
 
     public static void loginCRM() {
