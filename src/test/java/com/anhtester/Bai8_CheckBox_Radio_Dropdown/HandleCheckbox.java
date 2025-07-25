@@ -10,7 +10,7 @@ import java.time.Duration;
 import java.util.List;
 
 public class HandleCheckbox {
-    public static void HandleCheckbox1() throws InterruptedException {
+    public static void handleCheckbox() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -35,7 +35,7 @@ public class HandleCheckbox {
         driver.quit();
     }
 
-    public static void HandleCheckbox2() throws InterruptedException {
+    public static void handleListCheckbox() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -48,9 +48,22 @@ public class HandleCheckbox {
 
         driver.findElement(By.xpath("//div[normalize-space()='Dashboard Options']")).click();
 
-        List<WebElement> listCheckbox = driver.findElements(By.xpath("//div[@id='dashboard-options']//input[@type = 'checkbox']"));
+        List<WebElement> listCheckbox = driver.findElements(By.xpath("//div[@id='dashboard-options']//input[@type='checkbox']"));
         System.out.println("Total checkboxes = " + listCheckbox.size());
 
+        for (int i = 0; i < listCheckbox.size(); i++) {
+            if (listCheckbox.get(i).isSelected() && i % 2 != 0) {
+                listCheckbox.get(i).click();
+            }
+        }
+//        for (int i = 0; i < listCheckbox.size(); i++) {
+//            if (!listCheckbox.get(i).isSelected()) {
+//                listCheckbox.get(i).click();
+//                System.out.println("Checkbox " + (i + 1) + " is now selected");
+//            }
+//        }
+
+        // Check if all checkboxes are selected
         boolean check = false;
 
         for (int i = 0; i < listCheckbox.size(); i++) {
@@ -66,11 +79,15 @@ public class HandleCheckbox {
             }
         }
 
+        //dùng trong trường hợp cần kiểm tra list giá trị gì đó True/False (Vd: list permission, list menu,...)
+        System.out.println("All checkboxes are selected: " + check);
+
         Thread.sleep(2000);
         driver.quit();
     }
 
     public static void main(String[] args) throws InterruptedException {
-        HandleCheckbox2();
+        handleCheckbox();
+        handleListCheckbox();
     }
 }

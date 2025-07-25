@@ -12,32 +12,37 @@ import java.util.List;
 
 public class HandleRadioButton extends BaseTest {
 
-    public static void HandleRadioButton1() throws InterruptedException {
+    public static void handleRadioButton() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        driver.get("https://demoqa.com/radio-button");
-        Thread.sleep(3000);
+        driver.get("https://www.lambdatest.com/selenium-playground/radiobutton-demo");
+        Thread.sleep(1000);
 
-        driver.findElement(By.xpath("//label[normalize-space()='Yes']")).click();
-        System.out.println("Radio button 'Yes' is selected");
+        boolean unCheck = driver.findElement(By.xpath("//p[text()='Click on button to get the selected value.']/following-sibling::label[text()='Female']/input")).isSelected();
+        System.out.println("Radio button 'Female' is unselected: " + unCheck);
 
-        boolean check = driver.findElement(By.xpath("//input[@id='yesRadio']")).isSelected();
-        System.out.println("Radio button 'Yes' is selected: " + check);
+        driver.findElement(By.xpath("//p[text()='Click on button to get the selected value.']/following-sibling::label[text()='Female']")).click();
+        System.out.println("Radio button 'Female' is selected");
 
-        driver.findElement(By.xpath("//label[normalize-space()='Yes']")).click();
-        System.out.println("Radio button 'Yes' is unselected");
+        boolean check = driver.findElement(By.xpath("//p[text()='Click on button to get the selected value.']/following-sibling::label[text()='Female']/input")).isSelected();
+        System.out.println("Radio button 'Female' is selected: " + check);
 
-        boolean unCheck = driver.findElement(By.xpath("//input[@id='yesRadio']")).isSelected();
-        System.out.println("Radio button 'Yes' is unselected: " + unCheck);
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("//p[text()='Click on button to get the selected value.']/following-sibling::label[text()='Male']")).click();
+        System.out.println("Radio button 'Male' is selected");
+
+        boolean unCheck2 = driver.findElement(By.xpath("//p[text()='Click on button to get the selected value.']/following-sibling::label[text()='Female']/input")).isSelected();
+        System.out.println("Radio button 'Female' is unselected: " + unCheck2);
 
         Thread.sleep(2000);
         driver.quit();
 
     }
 
-    public static void HandleRadioButton2() throws InterruptedException {
+    public static void handleListRadio() throws InterruptedException {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -48,7 +53,7 @@ public class HandleRadioButton extends BaseTest {
         driver.findElement(By.xpath("//span[normalize-space()='Proposals']")).click();
         driver.findElement(By.xpath("//a[normalize-space()='New Proposal']")).click();
 
-        List<WebElement> listRadioButton = driver.findElements(By.xpath("//span[normalize-space()='Show quantity as:']/following-sibling::div//input[@type = 'radio']"));
+        List<WebElement> listRadioButton = driver.findElements(By.xpath("//span[normalize-space()='Show quantity as:']/following-sibling::div//input[@type='radio']"));
 
         System.out.println("Total radio buttons = " + listRadioButton.size());
 
@@ -68,7 +73,6 @@ public class HandleRadioButton extends BaseTest {
         System.out.println("Total radio buttons selected = " + check1);
         System.out.println("Total radio buttons unselected = " + check2);
 
-
         WebElement element = driver.findElement(By.xpath("//label[normalize-space()='Hours']/preceding-sibling::input"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
@@ -82,7 +86,7 @@ public class HandleRadioButton extends BaseTest {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        //  HandleRadioButton1();
-        HandleRadioButton2();
+        handleRadioButton();
+        handleListRadio();
     }
 }
