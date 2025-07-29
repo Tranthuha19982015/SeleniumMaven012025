@@ -3,7 +3,7 @@ package com.anhtester.Bai8_CheckBox_Radio_Dropdown;
 import com.anhtester.common.BaseTest;
 import org.openqa.selenium.By;
 
-public class HandleDropdownDynamic extends BaseTest {
+public class HandleDynamicDropdown extends BaseTest {
     public static void main(String[] args) throws InterruptedException {
         createDriver();
 
